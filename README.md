@@ -55,7 +55,22 @@ for python environment, I am using `conda` to create an environment and `pip` as
         conda activate malaa-env # to reflect changes made above
         echo $PYTHONPATH # check the set python path
         ```
+
+    5. Create `.env` file in `investor_bulletin` directory with the following structure:
+        ```sh
+        DATABASE_URL=cockroachdb://admin@localhost:26257/investor_bulletin
+        RAPID_DATA_URL=https://yahoo-finance15.p.rapidapi.com/api/v1/markets/quote
+        RAPID_API_KEY= # put your rapid api key from yahoo finance api
+        RAPID_API_HOST=yahoo-finance15.p.rapidapi.com
+        RABBITMQ_HOST=localhost
+        RABBITMQ_USER=guest
+        RABBITMQ_PASSWORD=guest
+        EXCHANGE_NAME=threshold_alert
+        QUEUE_NAME=alerts_queue
+        ```
 ### 2.2 Running the Application
+
+
 
 1. run fastapi app
     ```sh

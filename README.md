@@ -70,12 +70,23 @@ for python environment, I am using `conda` to create an environment and `pip` as
         ```
 ### 2.2 Running the Application
 
+Open four terminal sessions to run each component.
 
+**Note:** ensure each terminal is activating the conda environment or the proper python environment in case if using other environment mangement tool
+
+to activate conda environment: `conda activate malaa-env`
+
+0. go to project directory
+    ```sh
+    cd investor_bulletin
+    ```
 
 1. run fastapi app
     ```sh
     uvicorn api.main:app --reload
     ```
+
+**Note:** Swagger UI webpage can be found at http://127.0.0.1:8000/docs
 
 2. run consumer
     ```sh
@@ -84,10 +95,12 @@ for python environment, I am using `conda` to create an environment and `pip` as
 
 3. run celery worker
     ```sh
-    celery -A worker.tasks worker --loglevel=info
+    cd worker # go inside the worker directory
+    celery -A tasks worker --loglevel=info
     ```
 4. run celery beat
     ```sh
+    cd worker # go inside the worker directory
     celery -A worker.tasks beat --loglevel=info
     ```
 
